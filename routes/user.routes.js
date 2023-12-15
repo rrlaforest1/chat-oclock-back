@@ -9,7 +9,6 @@ const { isAuthenticated } = require("./../middlewares/auth");
 router.get("/verify", isAuthenticated, async (req, res, next) => {
   try {
     const connectedUser = await User.findById(req.userId);
-    console.log("connectedUser", connectedUser);
     res.json(connectedUser);
   } catch (error) {
     next(error);
