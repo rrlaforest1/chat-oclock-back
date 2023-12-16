@@ -24,7 +24,10 @@ module.exports = (app) => {
   // controls a very specific header to pass headers from the frontend
   app.use(
     cors({
-      origin: [FRONTEND_URL, "https://chat-oclock-front.vercel.app/"],
+      origin: "*",
+      methods: "*",
+      allowedHeaders: ["Content-Type", "Authorization"],
+      credentials: true,
     })
   );
 
